@@ -1,0 +1,331 @@
+* {
+  font-family: roboto;
+}
+
+footer {
+  background-color: #353535;
+  color: white;
+  padding: 22px 25px;
+}
+footer .footer__logo {
+  width: 139px;
+  height: 27px;
+  filter: invert(1);
+}
+footer .footer__list {
+  font-family: roboto;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+footer .footer__list .footer__list--icon {
+  display: flex;
+  gap: 11px;
+}
+
+.fa-handshake-angle {
+  align-self: center;
+}
+
+.headerIndex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.headerIndex__location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 17px;
+  background-color: #eaeaea;
+  width: 100%;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-family: roboto;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  color: #353535;
+}
+
+.headerMenu {
+  display: flex;
+  align-items: center;
+  padding-left: 17px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.IndexTitle {
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+  padding: 0 50px 0 50px;
+}
+
+.IndexSubtitle {
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+  padding-bottom: 25px;
+}
+
+.restaurants__cards a {
+  width: 100%;
+}
+
+.Infogroup {
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding-top: 30px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+.Infogroup__txt {
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin: 0;
+}
+
+.Fonctionnement {
+  padding: 50px 20px 70px 20px;
+}
+.Fonctionnement .Fonctionnement__list {
+  list-style: none;
+  margin: 0;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 25px;
+}
+.Fonctionnement .Fonctionnement__list--txt {
+  font-family: roboto;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  display: flex;
+  justify-content: space-around;
+  border: none;
+  border-radius: 20px;
+  padding: 30px 40px;
+  background: #f6f6f6;
+  box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+  margin: 0;
+}
+
+/* essai de style des numeros 
+    .Fonctionnement__list--number {
+        border-radius: 50%;
+        background-color: $fonctionnement-color;
+        padding: 10px;
+        width: 20px;
+        height:20px;
+        color: white;
+        position: relative;
+        text-align: center;
+    } */
+.icon {
+  color: #7e7e7e;
+}
+
+.restaurants__card img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  width: 100%;
+  height: 150px;
+}
+
+.restaurants {
+  padding: 50px 20px 70px 20px;
+  background-color: #f6f6f6;
+}
+.restaurants__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.restaurants__card {
+  box-sizing: border-box;
+  background-color: white;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.restaurants__card--content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 15px;
+  padding: 15px 0;
+}
+.restaurants__card--title {
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  line-height: normal;
+  margin: 0;
+  font-weight: 700;
+}
+.restaurants__card--subtitle {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin: 0;
+  font-size: 17px;
+}
+
+.main__menu {
+  background-color: #f6f6f6;
+  display: flex;
+  padding-bottom: 40px;
+}
+
+.menu__card {
+  box-sizing: border-box;
+  background-color: #f6f6f6;
+}
+.menu__card > img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 275px;
+}
+.menu__card--content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  padding: 40px 20px 0 20px;
+  position: relative;
+  bottom: 40px;
+  background-color: #f6f6f6;
+}
+
+.menu__card--title {
+  font-family: Shrikhand;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.subtitle-border {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin: 0;
+  font-size: 16px;
+  position: relative;
+  margin-bottom: 9px;
+}
+
+.subtitle-border::after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: #99E2D0;
+}
+
+.menu {
+  padding: 0 20px 40px 20px;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+}
+.menu__content {
+  border-radius: 15px;
+  background-color: white;
+  padding: 15px;
+  box-shadow: 0px 4.011px 15.043px 0px rgba(0, 0, 0, 0.1);
+}
+.menu__content > h3 {
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  line-height: normal;
+  margin: 0;
+  font-weight: 500;
+}
+
+.menu__items {
+  display: flex;
+  justify-content: space-between;
+}
+.menu__items--txt {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  margin: 0;
+  font-size: 15px;
+}
+
+.CTA {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo {
+  width: 100%;
+  height: 30px;
+  padding-top: 25px;
+  padding-bottom: 15px;
+}
+
+.Btn {
+  font-family: roboto;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  color: white;
+  border: none;
+  padding: 13px 19px;
+  border-radius: 25px;
+  background: linear-gradient(#FF79DA, #9356DC);
+  box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}/*# sourceMappingURL=main.css.map */
