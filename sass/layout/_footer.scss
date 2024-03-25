@@ -11,8 +11,7 @@ footer {
     
     .footer__list {
         @include txtHomepage;
-        list-style: none;
-        padding-left: 0;
+        padding-top: 15px;
         display: flex;
         flex-direction: column;
         gap: 7px;
@@ -26,4 +25,21 @@ footer {
 
 .fa-handshake-angle {
     align-self: center;
+}
+
+/* Media Queries */
+
+@media (min-width: 768px){
+    footer {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        padding: 60px 25px 30px 25px;
+        gap: 60px;
+
+    .footer__list {
+        flex-direction: row;
+        padding-top: 0;
+        }
+    }
 }
