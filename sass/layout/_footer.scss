@@ -15,7 +15,9 @@ footer {
         display: flex;
         flex-direction: column;
         gap: 7px;
-
+        &--txtnormal {
+            font-weight: 400;
+        }
         .footer__list--icon {
             display: flex;
             gap: 11px;
