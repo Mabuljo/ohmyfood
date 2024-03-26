@@ -10,15 +10,12 @@ footer {
     }
     
     .footer__list {
-        @include txtHomepage;
         padding-top: 15px;
         display: flex;
         flex-direction: column;
         gap: 7px;
-        &--txtnormal {
-            font-weight: 400;
-        }
-        .footer__list--icon {
+        &--icon {
+            font-weight: 500;
             display: flex;
             gap: 11px;
         }
