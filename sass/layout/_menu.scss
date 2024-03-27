@@ -5,7 +5,13 @@ body {
 .main__menu {
     background-color: $main-color;
     display: flex;
+    flex-direction: column;
     padding-bottom: 40px;
+}
+
+.restaurant__img {
+    object-fit: cover;
+    height: 275px;
 }
 
 .menu__card {
@@ -16,15 +22,15 @@ body {
         align-items: center;
         border-top-left-radius: 40px;
         border-top-right-radius: 40px;
-        padding-top: 40px;
+        padding-top: 50px;
         position: relative;
         bottom: 40px;
         background-color: $main-color;
-    }   
-}
+    }
 
-.menu__card--title {
-    @include MenuTitle;
+    &--title {
+        @include MenuTitle;
+    }   
 }
 
 .subtitle-border {
@@ -57,19 +63,22 @@ body {
         padding: 15px;
         box-shadow: 0px 4.011px 15.043px 0px rgba(0, 0, 0, 0.10);
     }
-}
-.menu__items {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    &--txt {
-        @include CardSubtitle;
-        font-size: 15px;
-    }
-    > h3 {
-        margin: 0;
-        @include CardTitle;
-        font-weight: 500;
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &--txt {
+            @include CardSubtitle;
+            font-size: 15px;
+        }
+
+        > h3 {
+            margin: 0;
+            @include CardTitle;
+            font-weight: 500;
+        }
     }
 }
 
@@ -79,23 +88,26 @@ body {
 }
 
 /* Media queries*/
+// Tablets
 @media (min-width: 768px) {
     
     .main__menu {
         margin-left: 100px;
         margin-right: 100px;
     }
-    .menu__card--content {
-        justify-content: center;
-        gap: 24px;
-    }
-    
+
     .menu {
         padding-left: 100px;
         padding-right: 100px;
     }
+
+    .menu__card--content {
+        justify-content: center;
+        gap: 24px;
+    }
 }
 
+// Desktop
 @media (min-width: 1024px) {
     .main__menu {
         margin-left: 190px;

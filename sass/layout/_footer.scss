@@ -13,11 +13,11 @@ footer {
         padding-top: 15px;
         display: flex;
         flex-direction: column;
-        gap: 7px;
+        gap: 5px;
         &--icon {
             font-weight: 500;
             display: flex;
-            gap: 11px;
+            gap: 10px;
         }
     }
 }
@@ -34,11 +34,14 @@ footer {
         flex-direction: row-reverse;
         align-items: center;
         padding: 60px 25px 30px 25px;
-        gap: 60px;
+        gap: 15px;
 
     .footer__list {
         flex-direction: row;
+        gap: 10px;
         padding-top: 0;
+        padding-right: 70px;
+
         }
     }
 }
