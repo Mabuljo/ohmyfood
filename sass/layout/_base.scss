@@ -3,6 +3,11 @@
     font-family: "Roboto", sans-serif;
 }
 
+body {
+    font-size: 16px;
+    margin: 0;
+}
+
 h1, h2, h3, p {
     margin: 0;
 }
@@ -24,10 +29,6 @@ h1, h2, h3, p {
 
 @mixin CardSubtitle {
     font-weight: 300;
-}
-
-body {
-    font-size: 16px;
 }
 
 a {
