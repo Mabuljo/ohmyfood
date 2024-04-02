@@ -156,11 +156,38 @@ main {
             font-weight: 300;
         }
 
-        &--heart {
+        .vide, .plein{
             position: absolute;
             right: 15px;
             bottom: 30px;
         }
+
+        .plein{
+            background: $btn-gradient;
+            -webkit-background-clip: text;
+        }
+
+        .fa-solid{
+            color: transparent;  
+            opacity: 0;
+        }
+
+        &--heart:hover{
+            .plein{
+                animation: heart 1s;
+                animation-fill-mode: both; // pour que le keyframe reste à 100%
+            }
+        }
+    }
+}
+
+@keyframes heart{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
     }
 }
 
