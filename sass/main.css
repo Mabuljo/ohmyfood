@@ -92,15 +92,12 @@ footer .footer__list--icon {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
 }
 
 .headerMenu {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   padding-left: 20px;
 }
 
@@ -190,6 +187,7 @@ main {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 20px;
   border: none;
   border-radius: 20px;
@@ -198,9 +196,11 @@ main {
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
   margin: 0;
 }
-
-.icon {
+.Fonctionnement__list--txt > .icon {
   color: #7e7e7e;
+}
+.Fonctionnement__list--txt > .icon:hover {
+  color: #9356DC;
 }
 
 .restaurants__card img {
@@ -228,6 +228,7 @@ main {
   background-color: white;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+  /* Activation de l'animation du coeur au survol*/
 }
 .restaurants__card--badge {
   border-radius: 2px;
@@ -257,25 +258,20 @@ main {
 }
 .restaurants__card .plein {
   background: linear-gradient(#FF79DA, #9356DC);
+  background-clip: text;
   -webkit-background-clip: text;
-}
-.restaurants__card .fa-solid {
+  display: none;
   color: transparent;
+}
+.restaurants__card--heart:hover .vide {
   opacity: 0;
 }
 .restaurants__card--heart:hover .plein {
-  animation: heart 1s;
-  animation-fill-mode: both;
+  display: inline-block;
+  opacity: 1;
+  animation: heart 1s both;
 }
 
-@keyframes heart {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 /* Media Queries*/
 @media (min-width: 768px) {
   .IndexTitle {
@@ -352,8 +348,7 @@ body {
   position: relative;
   margin-bottom: 9px;
 }
-
-.subtitle-border::after {
+.subtitle-border:after {
   content: "";
   position: absolute;
   bottom: -9px;
@@ -381,18 +376,20 @@ body {
   animation: menu-appear 900ms ease-out forwards;
 }
 .menu__content--1 {
-  animation-delay: 300;
+  animation-delay: 300ms;
 }
 .menu__content--2 {
-  animation-delay: 600;
+  animation-delay: 600ms;
 }
 .menu__content--3 {
-  animation-delay: 900;
+  animation-delay: 900ms;
 }
 .menu__items {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .menu__items--txt {
   font-weight: 300;
@@ -407,7 +404,13 @@ body {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.menu__items--checked {
+.menu__items--price {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+.menu__items--price .check {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -419,17 +422,17 @@ body {
   border-bottom-right-radius: 15px;
   margin: -16px -72px -16px 0;
   opacity: 0;
-  transition: margin-right 500ms ease-out;
+  transition: margin-right 600ms ease-in-out;
 }
-.menu__items--checked > i {
+.menu__items--price .check > i {
   transform: rotate(0);
-  transition: transform 500ms linear;
+  transition: transform 600ms linear;
 }
-.menu:hover .menu__items--checked {
+.menu__items--price:hover .check {
   margin-right: -16px;
   opacity: 1;
 }
-.menu:hover .menu__items--checked i {
+.menu__items--price:hover i {
   transform: rotate(360deg);
 }
 
@@ -464,12 +467,16 @@ body {
   }
 }
 /* Effet au survol du coeur*/
-@keyframes heart-full {
+@keyframes heart {
   0% {
-    opacity: 0.5;
+    opacity: 0;
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
   }
   100% {
     opacity: 1;
+    transform: scale(1);
+    -webkit-transform: scale(1);
   }
 }
 /* Apparition de la page des menus*/
@@ -496,8 +503,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  animation: disparition 1s ease-out forwards;
+  animation: disparition 1s ease-in-out forwards;
   animation-delay: 3s;
 }
 .loader__balls {
@@ -505,11 +511,6 @@ body {
   -webkit-animation: spinball 1s infinite linear;
   width: 100px;
   height: 100px;
-}
-.loader__title {
-  font-size: 24px;
-  font-family: "Shrikhand", serif;
-  text-align: center;
 }
 
 .ballcolor {
@@ -565,11 +566,5 @@ body {
   100% {
     opacity: 0;
     z-index: -1;
-  }
-}
-/* Media queries*/
-@media (min-width: 768px) {
-  .loader__title {
-    font-size: 40px;
   }
 }/*# sourceMappingURL=main.css.map */

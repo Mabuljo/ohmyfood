@@ -38,15 +38,16 @@ body {
     font-size: 16px;
     position: relative;
     margin-bottom: 9px;
-}
-.subtitle-border::after {
-    content: "";
-    position: absolute;
-    bottom: -9px;
-    left: 0;
-    width: 40px;
-    height: 3px;
-    background-color: $font-color;
+
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: -9px;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background-color: $font-color;
+    }
 }
 
 .menu {
@@ -67,7 +68,7 @@ body {
         animation: menu-appear 900ms ease-out forwards;
         @for $i from 1 through 3 {
             &--#{$i} {
-                animation-delay: 900/3*$i;
+                animation-delay: 900ms/3*$i;
             }
         }
     }
@@ -76,6 +77,8 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        white-space: nowrap;
+        overflow: hidden;
 
         &--txt {
             @include CardSubtitle;
@@ -92,8 +95,15 @@ body {
             text-overflow: ellipsis; 
             overflow: hidden;
         }
+    }
 
-        &--checked {
+    &__items--price {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap : 10px;
+
+        .check {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -103,28 +113,31 @@ body {
             height: 69px;
             border-top-right-radius: 15px;
             border-bottom-right-radius: 15px;
-            margin: -16px -72px -16px 0;
+            margin: -16px -72px -16px 0; 
             opacity: 0;
-            transition: margin-right 500ms ease-out;
+            transition: margin-right 600ms ease-in-out;
 
-            > i {
-                transform: rotate(0);
-                transition: transform 500ms linear;
+        > i {
+            transform: rotate(0);
+            transition: transform 600ms linear;
             }
         }
-    }
+    
 
-    &:hover {
-        .menu__items--checked {
-            margin-right: -16px;
-            opacity: 1;
+        &:hover {
+            .check {
+                margin-right: -16px;
+                opacity: 1;
+            }
 
             i {
                 transform: rotate(360deg);
-            }
+            }  
         }
     }
 }
+     
+
 
 .CTA {
     display: flex;

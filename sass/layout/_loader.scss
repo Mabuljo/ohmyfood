@@ -1,6 +1,6 @@
 .loader {
     position: fixed;
-    z-index: 2;
+    z-index: 2; // pour que le loader soit avant les pages du site web
     top: 0;
     left: 0;
     width: 100%;
@@ -9,8 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    animation: disparition 1s ease-out forwards;
+    animation: disparition 1s ease-in-out forwards;
     animation-delay: 3s;
 
     &__balls {
@@ -18,12 +17,6 @@
         -webkit-animation: spinball 1s infinite linear;
         width: 100px;
         height: 100px;
-    }
-
-    &__title {
-        font-size: 24px;
-        font-family: "Shrikhand", serif;
-        text-align: center;
     }
 
 }
@@ -82,14 +75,6 @@
 
     100% { 
         opacity: 0;
-        z-index: -1;
-    }
-}
-
-/* Media queries*/
-// Tablets
-@media (min-width: 768px) {
-    .loader__title {
-        font-size: 40px;
+        z-index: -1; // pour que le loader passe "sous" les éléments de la page web
     }
 }
