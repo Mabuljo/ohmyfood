@@ -113,14 +113,15 @@ body {
             height: 69px;
             border-top-right-radius: 15px;
             border-bottom-right-radius: 15px;
-            margin: -16px -72px -16px 0; 
+            margin: -16px -72px -16px 0;
             opacity: 0;
-            transition: margin-right 600ms ease-in-out;
+            transition: margin-right 1200ms ease-in-out both;
 
-        > i {
-            transform: rotate(0);
-            transition: transform 600ms linear;
-            }
+
+            > i {
+                transform: rotate(0deg);
+                transition: transform 600ms ease-in-out;
+                }
         }
     
 
@@ -132,7 +133,7 @@ body {
 
             i {
                 transform: rotate(360deg);
-            }  
+            }
         }
     }
 }

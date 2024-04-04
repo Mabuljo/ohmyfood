@@ -422,11 +422,11 @@ body {
   border-bottom-right-radius: 15px;
   margin: -16px -72px -16px 0;
   opacity: 0;
-  transition: margin-right 600ms ease-in-out;
+  transition: margin-right 1200ms ease-in-out both;
 }
 .menu__items--price .check > i {
-  transform: rotate(0);
-  transition: transform 600ms linear;
+  transform: rotate(0deg);
+  transition: transform 600ms ease-in-out;
 }
 .menu__items--price:hover .check {
   margin-right: -16px;
