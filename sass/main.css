@@ -33,8 +33,8 @@ a {
   border-radius: 25px;
   background: linear-gradient(#FF79DA, #9356DC);
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
-  /* Effet au survol du btn*/
   transition: filter 0.3s ease-out, box-shadow 0.3s ease-out; /* Transition pour le filtre et l'ombre*/
+  /* Effet au survol du btn*/
 }
 .btn:hover {
   filter: brightness(115%); /* Eclaircissement du bouton au survol */
@@ -198,9 +198,13 @@ main {
 }
 .Fonctionnement__list--txt > .icon {
   color: #7e7e7e;
+  transition: color 0.3s ease-out;
 }
 .Fonctionnement__list--txt > .icon:hover {
   color: #9356DC;
+}
+.Fonctionnement__list--txt > .icon:not(:hover) {
+  color: #7e7e7e;
 }
 
 .restaurants__card img {
@@ -229,7 +233,8 @@ main {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
-  /* Activation de l'animation du coeur au survol*/
+  /* Animation de l'apparition du coeur plein au survol*/
+  /* Disparition du coeur plein et apparition du coeur vide après l'effet de survol*/
 }
 .restaurants__card--badge {
   border-radius: 2px;
@@ -271,6 +276,18 @@ main {
   display: inline-block;
   opacity: 1;
   animation: heart 1s both;
+  -webkit-animation: heart 1s both;
+}
+.restaurants__card--heart:not(:hover) .plein {
+  display: inline-block;
+  opacity: 0;
+  animation: heart-disappear 1s forwards;
+  -webkit-animation: heart-disappear 1s forwards;
+}
+.restaurants__card--heart:not(:hover) .vide {
+  opacity: 1;
+  animation: menu-appear 1s forwards;
+  -webkit-animation: menu-appear 1s forwards;
 }
 
 /* Media Queries*/
@@ -364,6 +381,8 @@ body {
   display: flex;
   gap: 15px;
   flex-direction: column;
+  /* Apparition du check au survol des plats*/
+  /* Disparition du check après le survol des plats */
 }
 .menu__content {
   display: flex;
@@ -374,16 +393,21 @@ body {
   background-color: white;
   box-shadow: 0px 4.011px 15.043px 0px rgba(0, 0, 0, 0.1);
   opacity: 0;
+  /* Animation de l'apparition des plats au chargement de la page*/
   animation: menu-appear 900ms ease-out forwards;
+  -webkit-animation: menu-appear 900ms ease-out forwards;
 }
 .menu__content--1 {
   animation-delay: 300ms;
+  -webkit-animation-delay: 300ms;
 }
 .menu__content--2 {
   animation-delay: 600ms;
+  -webkit-animation-delay: 600ms;
 }
 .menu__content--3 {
   animation-delay: 900ms;
+  -webkit-animation-delay: 900ms;
 }
 .menu__items {
   display: flex;
@@ -412,29 +436,43 @@ body {
   gap: 10px;
 }
 .menu__items--price .check {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
   color: white;
   background-color: #99E2D0;
   width: 59px;
   height: 69px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  margin: -16px -72px -16px 0;
+  margin: -16px -72px -16px 0px;
   opacity: 0;
-  transition: margin-right 1200ms ease-in-out both;
 }
-.menu__items--price .check > i {
+.menu__items--price .check .fa-circle-check {
   transform: rotate(0deg);
-  transition: transform 600ms ease-in-out;
+  -webkit-transform: rotate(0deg);
+  transition: transform 1200ms ease-in;
 }
-.menu__items--price:hover .check {
-  margin-right: -16px;
+.menu__content:hover .check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: check-appear 900ms ease-in-out both;
   opacity: 1;
 }
-.menu__items--price:hover i {
+.menu__content:hover .check > .fa-circle-check {
   transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+}
+.menu__content:not(:hover) .check {
+  animation: check-disappear 900ms ease-in-out both;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: -16px;
+}
+.menu__content:not(:hover) .check > .fa-circle-check {
+  transform: rotate(-360deg);
+  -webkit-transform: rotate(-360deg);
 }
 
 .CTA {
@@ -470,6 +508,7 @@ body {
     padding-right: 140px;
   }
 }
+/****** Animations du coeur  ******/
 /* Effet au survol du coeur*/
 @keyframes heart {
   0% {
@@ -483,7 +522,20 @@ body {
     -webkit-transform: scale(1);
   }
 }
-/* Apparition de la page des menus*/
+/* Disparition du coeur après l'effet de survol*/
+@keyframes heart-disappear {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+  }
+}
+/****** Apparition de la page des menus ******/
 @keyframes menu-appear {
   0% {
     transform: scale(0);
@@ -494,6 +546,30 @@ body {
     transform: scale(1);
     -webkit-transform: scale(1);
     opacity: 1;
+  }
+}
+/******Apparition du checked des plats ******/
+@keyframes check-appear {
+  0% {
+    transform: translate(0.5) scale(0.5);
+    -webkit-transform: translate(0.5) scale(0.5);
+  }
+  100% {
+    transform: translate(1) scale(1);
+    -webkit-transform: translate(1) scale(1);
+    margin-right: -16px;
+  }
+}
+@keyframes check-disappear {
+  0% {
+    transform: translate(1) scale(1);
+    -webkit-transform: translate(1) scale(1);
+  }
+  100% {
+    transform: translate(0.5) scale(0.5);
+    -webkit-transform: translate(0.5) scale(0.5);
+    margin-right: -72px;
+    opacity: 0;
   }
 }
 .loader {

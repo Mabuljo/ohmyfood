@@ -101,9 +101,13 @@ main {
 
             > .icon {
                 color:$fonctionnement-color;
+                transition: color 0.3s ease-out;
 
                 &:hover {
                     color: $fonctionnement-secondarycolor;
+                }
+                &:not(:hover) {
+                    color:$fonctionnement-color;
                 }
             }
         }
@@ -176,7 +180,7 @@ main {
             color: transparent;
         }
 
-        /* Activation de l'animation du coeur au survol*/
+/* Animation de l'apparition du coeur plein au survol*/
         &--heart:hover {
 
             .vide {
@@ -187,6 +191,23 @@ main {
                 display: inline-block;
                 opacity: 1;
                 animation: heart 1s both; // pour que le keyframe reste à 100%
+                -webkit-animation: heart 1s both;
+            }
+        }
+        
+/* Disparition du coeur plein et apparition du coeur vide après l'effet de survol*/
+        &--heart:not(:hover) {
+            .plein {
+                display: inline-block;
+                opacity: 0;
+                animation: heart-disappear 1s forwards;
+                -webkit-animation: heart-disappear 1s forwards;
+            }
+            
+            .vide {
+                opacity:1;
+                animation: menu-appear 1s forwards;
+                -webkit-animation: menu-appear 1s forwards;
             }
         }
     }
