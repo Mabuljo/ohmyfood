@@ -76,12 +76,12 @@ main {
         &--number{
             border-radius: 50%;
             background-color: $fonctionnement-secondarycolor;
-            padding: 10px;
+            padding: 5px;
             width: 15px;
             height:15px;
             color: white;
             position: absolute;
-            left: -20px;
+            left: -13px;
             text-align: center;
         }
 
@@ -102,12 +102,10 @@ main {
             > .icon {
                 color:$fonctionnement-color;
                 transition: color 0.3s ease-out;
+                font-size: 18px;
 
                 &:hover {
                     color: $fonctionnement-secondarycolor;
-                }
-                &:not(:hover) {
-                    color:$fonctionnement-color;
                 }
             }
         }
@@ -190,7 +188,7 @@ main {
             .plein {
                 display: inline-block;
                 opacity: 1;
-                animation: heart 1s both; // pour que le keyframe reste à 100%
+                animation: heart 1s both; // pour que le coeur reste à 100%
                 -webkit-animation: heart 1s both;
             }
         }

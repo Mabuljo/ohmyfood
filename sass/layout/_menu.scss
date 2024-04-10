@@ -16,22 +16,68 @@ body {
 
 .menu__card {
     background-color: $main-color;
+
     &--content {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
+        gap: 5px;
         border-top-left-radius: 40px;
         border-top-right-radius: 40px;
         padding-top: 50px;
-        position: relative;
         bottom: 40px;
         background-color: $main-color;
+        position: relative;
+        overflow: hidden;
     }
 
     &--title {
         @include MenuTitle;
-    }   
+    } 
+
+    .coeur-vide, .coeur-plein {
+        position: absolute;
+        bottom: 10px;
+    }
+    
+    .coeur-plein {
+        background: $btn-gradient;
+        background-clip: text;
+        -webkit-background-clip: text;
+        display: none; // le coeur plein est invisible
+        color: transparent;
+    }
+    /* Animation de l'apparition du coeur plein au survol*/
+    &--heart:hover {
+        .coeur-vide {
+            opacity: 0;
+        }
+    
+        .coeur-plein {
+            display: inline-block;
+            opacity: 1;
+            animation: heart 1s both; // pour que le coeur reste à 100%
+            -webkit-animation: heart 1s both;
+        }
+    }
+    
+    /* Disparition du coeur plein et apparition du coeur vide après l'effet de survol*/
+    &--heart:not(:hover) {
+        .coeur-plein {
+            display: inline-block;
+            opacity: 0;
+            animation: heart-disappear 1s both;
+            -webkit-animation: heart-disappear 1s both;
+        }
+        
+        .coeur-vide {
+            opacity:1;
+            animation: menu-appear 1s forwards;
+            -webkit-animation: menu-appear 1s forwards;
+        }
+    }  
 }
+
 
 /* bordure des titre des menus */
 .subtitle-border {
@@ -48,7 +94,24 @@ body {
         width: 40px;
         height: 3px;
         background-color: $font-color;
+        overflow: hidden;
     }
+}
+
+.entrees, .plats, .desserts{
+    animation: menu-appear 1s ease-in-out both;
+}
+
+.entrees{
+    animation-delay: 1s;
+}
+
+.plats{
+    animation-delay: 2s;
+}
+
+.desserts{
+    animation-delay: 3s;
 }
 
 .menu {
@@ -58,6 +121,7 @@ body {
     flex-direction: column;
 
     &__content {
+        position: relative;
         display: flex;
         justify-content: space-between;
         border-radius: 15px;
@@ -65,17 +129,7 @@ body {
         align-items: center;
         background-color: white;
         box-shadow: 0px 4.011px 15.043px 0px rgba(0, 0, 0, 0.10);
-        opacity: 0;
-
-/* Animation de l'apparition des plats au chargement de la page*/
-        animation: menu-appear 900ms ease-out forwards;
-        -webkit-animation: menu-appear 900ms ease-out forwards;
-        @for $i from 1 through 3 {
-            &--#{$i} {
-                animation-delay: 900ms/3*$i;
-                -webkit-animation-delay: 900ms/3*$i;
-            }
-        }
+        overflow: hidden;
     }
 
     &__items {
@@ -108,15 +162,19 @@ body {
         align-items: center;
         gap: 10px;
 
+        .price{
+            position: relative;
+        }
+
         .check {
-            display: none;
+            position: absolute;
+            right: -59px;
             color: white;
             background-color: $font-color;
             width: 59px;
             height: 69px;
             border-top-right-radius: 15px;
             border-bottom-right-radius: 15px;
-            margin: -16px -72px -16px 0px;
             opacity: 0;
 
             .fa-circle-check {
@@ -130,11 +188,19 @@ body {
 
 /* Apparition du check au survol des plats*/
     &__content:hover {
+        .plat {
+            width: 70%;
+        }
+
+        .price{
+            animation: price-slide 900ms both;
+        }
+
         .check {
             display: flex;
             justify-content: center;
             align-items: center;
-            animation: check-appear 900ms ease-in-out both;
+            animation: check-appear 900ms both;
             opacity: 1;
 
             >.fa-circle-check {
@@ -146,22 +212,23 @@ body {
     
 /* Disparition du check après le survol des plats */
     &__content:not(:hover) {
+        .plat {
+            width: 100%;
+        }
+
+        .price {
+            animation: price-disappear 900ms;
+        }
+
         .check {
-            animation: check-disappear 900ms ease-in-out both;
-            opacity: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-right: -16px;
-
-            >.fa-circle-check {
-                transform: rotate(-360deg);
-                -webkit-transform: rotate(-360deg)
-            }
+            animation: check-disappear 900ms;
+            opacity: 1;
         }    
     }
 } 
-
 
 .CTA {
     display: flex;
@@ -183,9 +250,8 @@ body {
     }
 
     .menu__card--content {
-        justify-content: center;
         gap: 24px;
-    }
+    } 
 }
 
 // Desktop

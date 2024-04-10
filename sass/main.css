@@ -40,10 +40,6 @@ a {
   filter: brightness(115%); /* Eclaircissement du bouton au survol */
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
-.btn:not(:hover) {
-  filter: brightness(100%); /* Revenir à la luminosité de départ lorsqu'on quitte le survol */
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
-}
 
 footer {
   background-color: #353535;
@@ -174,12 +170,12 @@ main {
 .Fonctionnement__list--number {
   border-radius: 50%;
   background-color: #9356DC;
-  padding: 10px;
+  padding: 5px;
   width: 15px;
   height: 15px;
   color: white;
   position: absolute;
-  left: -20px;
+  left: -13px;
   text-align: center;
 }
 .Fonctionnement__list--txt {
@@ -199,12 +195,10 @@ main {
 .Fonctionnement__list--txt > .icon {
   color: #7e7e7e;
   transition: color 0.3s ease-out;
+  font-size: 18px;
 }
 .Fonctionnement__list--txt > .icon:hover {
   color: #9356DC;
-}
-.Fonctionnement__list--txt > .icon:not(:hover) {
-  color: #7e7e7e;
 }
 
 .restaurants__card img {
@@ -341,22 +335,57 @@ body {
 
 .menu__card {
   background-color: #f6f6f6;
+  /* Animation de l'apparition du coeur plein au survol*/
+  /* Disparition du coeur plein et apparition du coeur vide après l'effet de survol*/
 }
 .menu__card--content {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  gap: 5px;
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
   padding-top: 50px;
-  position: relative;
   bottom: 40px;
   background-color: #f6f6f6;
+  position: relative;
+  overflow: hidden;
 }
 .menu__card--title {
   font-family: "Shrikhand", serif;
   font-size: 28px;
   font-weight: 400;
+}
+.menu__card .coeur-vide, .menu__card .coeur-plein {
+  position: absolute;
+  bottom: 10px;
+}
+.menu__card .coeur-plein {
+  background: linear-gradient(#FF79DA, #9356DC);
+  background-clip: text;
+  -webkit-background-clip: text;
+  display: none;
+  color: transparent;
+}
+.menu__card--heart:hover .coeur-vide {
+  opacity: 0;
+}
+.menu__card--heart:hover .coeur-plein {
+  display: inline-block;
+  opacity: 1;
+  animation: heart 1s both;
+  -webkit-animation: heart 1s both;
+}
+.menu__card--heart:not(:hover) .coeur-plein {
+  display: inline-block;
+  opacity: 0;
+  animation: heart-disappear 1s both;
+  -webkit-animation: heart-disappear 1s both;
+}
+.menu__card--heart:not(:hover) .coeur-vide {
+  opacity: 1;
+  animation: menu-appear 1s forwards;
+  -webkit-animation: menu-appear 1s forwards;
 }
 
 /* bordure des titre des menus */
@@ -374,6 +403,23 @@ body {
   width: 40px;
   height: 3px;
   background-color: #99E2D0;
+  overflow: hidden;
+}
+
+.entrees, .plats, .desserts {
+  animation: menu-appear 1s ease-in-out both;
+}
+
+.entrees {
+  animation-delay: 1s;
+}
+
+.plats {
+  animation-delay: 2s;
+}
+
+.desserts {
+  animation-delay: 3s;
 }
 
 .menu {
@@ -385,6 +431,7 @@ body {
   /* Disparition du check après le survol des plats */
 }
 .menu__content {
+  position: relative;
   display: flex;
   justify-content: space-between;
   border-radius: 15px;
@@ -392,22 +439,7 @@ body {
   align-items: center;
   background-color: white;
   box-shadow: 0px 4.011px 15.043px 0px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  /* Animation de l'apparition des plats au chargement de la page*/
-  animation: menu-appear 900ms ease-out forwards;
-  -webkit-animation: menu-appear 900ms ease-out forwards;
-}
-.menu__content--1 {
-  animation-delay: 300ms;
-  -webkit-animation-delay: 300ms;
-}
-.menu__content--2 {
-  animation-delay: 600ms;
-  -webkit-animation-delay: 600ms;
-}
-.menu__content--3 {
-  animation-delay: 900ms;
-  -webkit-animation-delay: 900ms;
+  overflow: hidden;
 }
 .menu__items {
   display: flex;
@@ -435,15 +467,18 @@ body {
   align-items: center;
   gap: 10px;
 }
+.menu__items--price .price {
+  position: relative;
+}
 .menu__items--price .check {
-  display: none;
+  position: absolute;
+  right: -59px;
   color: white;
   background-color: #99E2D0;
   width: 59px;
   height: 69px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  margin: -16px -72px -16px 0px;
   opacity: 0;
 }
 .menu__items--price .check .fa-circle-check {
@@ -451,28 +486,35 @@ body {
   -webkit-transform: rotate(0deg);
   transition: transform 1200ms ease-in;
 }
+.menu__content:hover .plat {
+  width: 70%;
+}
+.menu__content:hover .price {
+  animation: price-slide 900ms both;
+}
 .menu__content:hover .check {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: check-appear 900ms ease-in-out both;
+  animation: check-appear 900ms both;
   opacity: 1;
 }
 .menu__content:hover .check > .fa-circle-check {
   transform: rotate(360deg);
   -webkit-transform: rotate(360deg);
 }
+.menu__content:not(:hover) .plat {
+  width: 100%;
+}
+.menu__content:not(:hover) .price {
+  animation: price-disappear 900ms;
+}
 .menu__content:not(:hover) .check {
-  animation: check-disappear 900ms ease-in-out both;
-  opacity: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: -16px;
-}
-.menu__content:not(:hover) .check > .fa-circle-check {
-  transform: rotate(-360deg);
-  -webkit-transform: rotate(-360deg);
+  animation: check-disappear 900ms;
+  opacity: 1;
 }
 
 .CTA {
@@ -491,7 +533,6 @@ body {
     padding-right: 100px;
   }
   .menu__card--content {
-    justify-content: center;
     gap: 24px;
   }
 }
@@ -538,38 +579,44 @@ body {
 /****** Apparition de la page des menus ******/
 @keyframes menu-appear {
   0% {
-    transform: scale(0);
-    -webkit-transform: scale(0);
     opacity: 0;
   }
   100% {
-    transform: scale(1);
-    -webkit-transform: scale(1);
     opacity: 1;
   }
 }
 /******Apparition du checked des plats ******/
 @keyframes check-appear {
   0% {
-    transform: translate(0.5) scale(0.5);
-    -webkit-transform: translate(0.5) scale(0.5);
+    right: -59px;
   }
   100% {
-    transform: translate(1) scale(1);
-    -webkit-transform: translate(1) scale(1);
-    margin-right: -16px;
+    right: 0;
   }
 }
-@keyframes check-disappear {
+@keyframes price-slide {
   0% {
-    transform: translate(1) scale(1);
-    -webkit-transform: translate(1) scale(1);
+    right: 0;
   }
   100% {
-    transform: translate(0.5) scale(0.5);
-    -webkit-transform: translate(0.5) scale(0.5);
-    margin-right: -72px;
-    opacity: 0;
+    right: 59px;
+  }
+}
+/****** Disparition du checked des plats ******/
+@keyframes check-disappear {
+  0% {
+    right: 0;
+  }
+  100% {
+    right: -59px;
+  }
+}
+@keyframes price-disappear {
+  0% {
+    right: 59px;
+  }
+  100% {
+    right: 0;
   }
 }
 .loader {

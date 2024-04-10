@@ -33,41 +33,52 @@
 /****** Apparition de la page des menus ******/
 @keyframes menu-appear {
     0% {
-        transform: scale(0);
-        -webkit-transform: scale(0);
         opacity: 0;
     }
 
     100% {
-        transform: scale(1);
-        -webkit-transform: scale(1);
         opacity: 1;
     } 
 }
 
 /******Apparition du checked des plats ******/
-@keyframes check-appear{
+@keyframes check-appear {
     0% {
-        transform: translate(0.5) scale(0.5);
-        -webkit-transform: translate(0.5) scale(0.5);
+        right: -59px;
     }
 
     100% {
-        transform: translate(1) scale(1);
-        -webkit-transform: translate(1) scale(1);
-        margin-right: -16px;
+        right: 0;
     }
 }
 
-@keyframes check-disappear{
+@keyframes price-slide {
     0% {
-        transform: translate(1) scale(1);
-        -webkit-transform: translate(1) scale(1);
+        right: 0;
     }
+
     100% {
-        transform: translate(0.5) scale(0.5);
-        -webkit-transform: translate(0.5) scale(0.5);
-        margin-right: -72px;
-        opacity: 0;
+        right: 59px;
+    }
+}
+
+/****** Disparition du checked des plats ******/
+@keyframes check-disappear {
+    0% {
+        right: 0;
+    }
+
+    100% {
+        right: -59px;
+    }
+}
+
+@keyframes price-disappear {
+    0% {
+        right: 59px;
+    }
+
+    100% {
+        right: 0;
     }
 }
