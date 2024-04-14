@@ -172,11 +172,7 @@ main {
         }
 
         .plein {
-            background: $btn-gradient;
-            background-clip: text;
-            -webkit-background-clip: text;
-            display: none; // le coeur plein est invisible
-            color: transparent;
+            @include CoeurColore;
         }
 
         /* Animation de l'apparition du coeur plein au survol*/

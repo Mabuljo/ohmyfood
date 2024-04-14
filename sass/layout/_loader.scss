@@ -15,7 +15,7 @@
     -webkit-animation-delay: 3s;
 
     &__balls {
-        animation: spinball 1s infinite linear; // animation qui permet la roation de chaque cercle
+        animation: spinball 1s infinite linear; // animation qui permet la rotation de chaque cercle
         -webkit-animation: spinball 1s infinite linear;
         width: 100px;
         height: 100px;
@@ -29,7 +29,7 @@
 }
 
 .ball_1, .ball_2, .ball_3, .ball_4 {
-    position:absolute;
+    position: absolute;
 }
 
 /* Personnalisation et position de chaque cercle de couleur */

@@ -33,11 +33,11 @@ a {
   border-radius: 25px;
   background: linear-gradient(#FF79DA, #9356DC);
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
-  transition: filter 0.3s ease-out, box-shadow 0.3s ease-out; /* Transition pour le filtre et l'ombre*/
-  /* Effet au survol du btn*/
+  transition: filter 0.3s ease-out, box-shadow 0.3s ease-out;
+  /* Effet au survol du btn */
 }
 .btn:hover {
-  filter: brightness(115%); /* Eclaircissement du bouton au survol */
+  filter: brightness(115%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -324,7 +324,7 @@ body {
 
 .menu__card {
   background-color: #f6f6f6;
-  /* Style des coeurs*/
+  /* Style des coeurs */
   /* Animation de l'apparition du coeur plein au survol*/
 }
 .menu__card--content {
@@ -365,7 +365,7 @@ body {
   -webkit-animation: heart 1s both;
 }
 
-/* bordure des titre des menus */
+/* bordure des titres des menus */
 .subtitle-border {
   font-weight: 300;
   font-size: 16px;
@@ -389,7 +389,7 @@ body {
   -webkit-animation: menu-appear 1s ease-in-out both;
 }
 
-/* Délai d'animation afin que chaque partie apparaissent en décalé */
+/* Délai d'animation afin que chaque partie apparaisse en décalé */
 .entrees {
   animation-delay: 1s;
   -webkit-animation-delay: 1s;
@@ -410,7 +410,7 @@ body {
   display: flex;
   gap: 15px;
   flex-direction: column;
-  /* Apparition du check au survol des plats*/
+  /* Apparition du check au survol des plats */
   /* Disparition du check après le survol des plats */
 }
 .menu__content {
@@ -480,9 +480,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 1;
   animation: check-appear 800ms both;
   -webkit-animation: check-appear 800ms both;
-  opacity: 1;
 }
 .menu__content:hover .check > .fa-circle-check {
   transform: rotate(360deg);
@@ -492,16 +492,16 @@ body {
   width: 100%;
 }
 .menu__content:not(:hover) .price {
-  animation: price-disappear 900ms;
-  -webkit-animation: price-disappear 900ms;
+  animation: price-disappear 800ms;
+  -webkit-animation: price-disappear 800ms;
 }
 .menu__content:not(:hover) .check {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: check-disappear 900ms;
-  -webkit-animation: check-disappear 900ms;
   opacity: 1;
+  animation: check-disappear 800ms;
+  -webkit-animation: check-disappear 800ms;
 }
 
 .CTA {

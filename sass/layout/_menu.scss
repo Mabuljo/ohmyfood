@@ -35,18 +35,14 @@ body {
         @include MenuTitle;
     } 
 
-    /* Style des coeurs*/
+    /* Style des coeurs */
     .coeur-vide, .coeur-plein {
         position: absolute;
         bottom: 10px;
     }
     
     .coeur-plein {
-        background: $btn-gradient;
-        background-clip: text;
-        -webkit-background-clip: text;
-        display: none; // le coeur plein est invisible
-        color: transparent;
+        @include CoeurColore;
     }
 
     /* Animation de l'apparition du coeur plein au survol*/
@@ -63,7 +59,7 @@ body {
     } 
 }
 
-/* bordure des titre des menus */
+/* bordure des titres des menus */
 .subtitle-border {
     @include CardSubtitle;
     font-size: 16px;
@@ -87,7 +83,8 @@ body {
     animation: menu-appear 1s ease-in-out both;
     -webkit-animation: menu-appear 1s ease-in-out both ;
 }
-/* Délai d'animation afin que chaque partie apparaissent en décalé */
+
+/* Délai d'animation afin que chaque partie apparaisse en décalé */
 .entrees {
     animation-delay: 1s;
     -webkit-animation-delay: 1s;
@@ -169,13 +166,13 @@ body {
             .fa-circle-check {
                 transform: rotate(0deg);
                 -webkit-transform: rotate(0deg);
-                transition: transform 1200ms ease-in;
+                transition: transform 1200ms ease-in; // rotation de l'icone à 360°
             }
         }
     }
 
 
-    /* Apparition du check au survol des plats*/
+    /* Apparition du check au survol des plats */
     &__content:hover {
         .plat {
             width: 70%;
@@ -187,12 +184,9 @@ body {
         }
 
         .check {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include check;
             animation: check-appear 800ms both;
             -webkit-animation: check-appear 800ms both;
-            opacity: 1;
 
             >.fa-circle-check {
                 transform: rotate(360deg);
@@ -208,17 +202,14 @@ body {
         }
 
         .price {
-            animation: price-disappear 900ms;
-            -webkit-animation: price-disappear 900ms;
+            animation: price-disappear 800ms;
+            -webkit-animation: price-disappear 800ms;
         }
 
         .check {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: check-disappear 900ms;
-            -webkit-animation: check-disappear 900ms;
-            opacity: 1;
+            @include check;
+            animation: check-disappear 800ms;
+            -webkit-animation: check-disappear 800ms;
         }    
     }
 } 
