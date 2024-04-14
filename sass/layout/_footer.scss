@@ -36,12 +36,11 @@ footer {
         padding: 60px 25px 30px 25px;
         gap: 15px;
 
-    .footer__list {
-        flex-direction: row;
-        gap: 10px;
-        padding-top: 0;
-        padding-right: 70px;
-
+        .footer__list {
+            flex-direction: row;
+            gap: 10px;
+            padding-top: 0;
+            padding-right: 70px;
         }
     }
 }

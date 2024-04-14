@@ -1,9 +1,8 @@
-/****** Animations du coeur  ******/
+/****** Animation du coeur  ******/
 
 /* Effet au survol du coeur*/
 @keyframes heart {
     0%{
-        opacity: 0;
         transform: scale(0.8); // Début de l'animation, le cœur est légèrement réduit
         -webkit-transform: scale(0.8);
     }
@@ -12,21 +11,6 @@
         opacity: 1;
         transform: scale(1); 
         -webkit-transform: scale(1);
-    }
-}
-
-/* Disparition du coeur après l'effet de survol*/
-@keyframes heart-disappear {
-    0% {
-        opacity: 1;
-        transform: scale(1); 
-        -webkit-transform: scale(1);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(0.8); // fin de l'animation, le cœur est légèrement réduit
-        -webkit-transform: scale(0.8);
     }
 }
 
@@ -41,7 +25,7 @@
     } 
 }
 
-/******Apparition du checked des plats ******/
+/****** Apparition du checked des plats ******/
 @keyframes check-appear {
     0% {
         right: -59px;

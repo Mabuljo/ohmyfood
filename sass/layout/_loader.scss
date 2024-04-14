@@ -1,5 +1,5 @@
 .loader {
-    position: fixed;
+    position: fixed; // maintient le loader au centre même si on fait défiler la page
     z-index: 2; // pour que le loader soit avant les pages du site web
     top: 0;
     left: 0;
@@ -9,19 +9,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: disparition 1s ease-in-out forwards;
+    animation: disparition 1s ease-in-out forwards; // animation qui permet la disparition du loader
+    -webkit-animation: disparition 1s ease-in-out forwards;
     animation-delay: 3s;
+    -webkit-animation-delay: 3s;
 
     &__balls {
-        animation: spinball 1s infinite linear;
+        animation: spinball 1s infinite linear; // animation qui permet la roation de chaque cercle
         -webkit-animation: spinball 1s infinite linear;
         width: 100px;
         height: 100px;
     }
-
 }
 
-.ballcolor{
+.ballcolor {
     width:100px;
     height:100px;
     border-radius:50%
@@ -31,6 +32,7 @@
     position:absolute;
 }
 
+/* Personnalisation et position de chaque cercle de couleur */
 .ball_1{
     border:2px solid $fonctionnement-secondarycolor;
     top:0;
@@ -55,14 +57,14 @@
     left:0;
 }
 
-/* Rotation des balles du loader*/
+/* Rotation des cercles du loader*/
 @keyframes spinball {
-    0%{
+    0% {
         transform:rotate(0deg);
         -webkit-transform: rotate(0deg);
     } 
 
-    100%{
+    100% {
         transform:rotate(360deg);
         -webkit-transform: rotate(360deg);
     }
@@ -70,7 +72,7 @@
 
 /* disparition du Loader */
 @keyframes disparition {
-    0%{ 
+    0% { 
         opacity: 1;
     }
 

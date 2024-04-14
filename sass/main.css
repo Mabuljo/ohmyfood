@@ -196,6 +196,7 @@ main {
   color: #7e7e7e;
   transition: color 0.3s ease-out;
   font-size: 18px;
+  /* Changement au survol de la couleur de l'icone*/
 }
 .Fonctionnement__list--txt > .icon:hover {
   color: #9356DC;
@@ -227,8 +228,8 @@ main {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.1);
+  /*Style des coeurs*/
   /* Animation de l'apparition du coeur plein au survol*/
-  /* Disparition du coeur plein et apparition du coeur vide après l'effet de survol*/
 }
 .restaurants__card--badge {
   border-radius: 2px;
@@ -268,20 +269,8 @@ main {
 }
 .restaurants__card--heart:hover .plein {
   display: inline-block;
-  opacity: 1;
   animation: heart 1s both;
   -webkit-animation: heart 1s both;
-}
-.restaurants__card--heart:not(:hover) .plein {
-  display: inline-block;
-  opacity: 0;
-  animation: heart-disappear 1s forwards;
-  -webkit-animation: heart-disappear 1s forwards;
-}
-.restaurants__card--heart:not(:hover) .vide {
-  opacity: 1;
-  animation: menu-appear 1s forwards;
-  -webkit-animation: menu-appear 1s forwards;
 }
 
 /* Media Queries*/
@@ -335,8 +324,8 @@ body {
 
 .menu__card {
   background-color: #f6f6f6;
+  /* Style des coeurs*/
   /* Animation de l'apparition du coeur plein au survol*/
-  /* Disparition du coeur plein et apparition du coeur vide après l'effet de survol*/
 }
 .menu__card--content {
   display: flex;
@@ -372,20 +361,8 @@ body {
 }
 .menu__card--heart:hover .coeur-plein {
   display: inline-block;
-  opacity: 1;
   animation: heart 1s both;
   -webkit-animation: heart 1s both;
-}
-.menu__card--heart:not(:hover) .coeur-plein {
-  display: inline-block;
-  opacity: 0;
-  animation: heart-disappear 1s both;
-  -webkit-animation: heart-disappear 1s both;
-}
-.menu__card--heart:not(:hover) .coeur-vide {
-  opacity: 1;
-  animation: menu-appear 1s forwards;
-  -webkit-animation: menu-appear 1s forwards;
 }
 
 /* bordure des titre des menus */
@@ -406,20 +383,26 @@ body {
   overflow: hidden;
 }
 
+/* Apparition des plats au chargement de la page */
 .entrees, .plats, .desserts {
   animation: menu-appear 1s ease-in-out both;
+  -webkit-animation: menu-appear 1s ease-in-out both;
 }
 
+/* Délai d'animation afin que chaque partie apparaissent en décalé */
 .entrees {
   animation-delay: 1s;
+  -webkit-animation-delay: 1s;
 }
 
 .plats {
   animation-delay: 2s;
+  -webkit-animation-delay: 2s;
 }
 
 .desserts {
   animation-delay: 3s;
+  -webkit-animation-delay: 3s;
 }
 
 .menu {
@@ -490,13 +473,15 @@ body {
   width: 70%;
 }
 .menu__content:hover .price {
-  animation: price-slide 900ms both;
+  animation: price-slide 800ms both;
+  -webkit-animation: price-slide 800ms both;
 }
 .menu__content:hover .check {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: check-appear 900ms both;
+  animation: check-appear 800ms both;
+  -webkit-animation: check-appear 800ms both;
   opacity: 1;
 }
 .menu__content:hover .check > .fa-circle-check {
@@ -508,12 +493,14 @@ body {
 }
 .menu__content:not(:hover) .price {
   animation: price-disappear 900ms;
+  -webkit-animation: price-disappear 900ms;
 }
 .menu__content:not(:hover) .check {
   display: flex;
   justify-content: center;
   align-items: center;
   animation: check-disappear 900ms;
+  -webkit-animation: check-disappear 900ms;
   opacity: 1;
 }
 
@@ -549,11 +536,10 @@ body {
     padding-right: 140px;
   }
 }
-/****** Animations du coeur  ******/
+/****** Animation du coeur  ******/
 /* Effet au survol du coeur*/
 @keyframes heart {
   0% {
-    opacity: 0;
     transform: scale(0.8);
     -webkit-transform: scale(0.8);
   }
@@ -561,19 +547,6 @@ body {
     opacity: 1;
     transform: scale(1);
     -webkit-transform: scale(1);
-  }
-}
-/* Disparition du coeur après l'effet de survol*/
-@keyframes heart-disappear {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-    -webkit-transform: scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.8);
-    -webkit-transform: scale(0.8);
   }
 }
 /****** Apparition de la page des menus ******/
@@ -585,7 +558,7 @@ body {
     opacity: 1;
   }
 }
-/******Apparition du checked des plats ******/
+/****** Apparition du checked des plats ******/
 @keyframes check-appear {
   0% {
     right: -59px;
@@ -631,7 +604,9 @@ body {
   justify-content: center;
   align-items: center;
   animation: disparition 1s ease-in-out forwards;
+  -webkit-animation: disparition 1s ease-in-out forwards;
   animation-delay: 3s;
+  -webkit-animation-delay: 3s;
 }
 .loader__balls {
   animation: spinball 1s infinite linear;
@@ -650,6 +625,7 @@ body {
   position: absolute;
 }
 
+/* Personnalisation et position de chaque cercle de couleur */
 .ball_1 {
   border: 2px solid #9356DC;
   top: 0;
@@ -674,7 +650,7 @@ body {
   left: 0;
 }
 
-/* Rotation des balles du loader*/
+/* Rotation des cercles du loader*/
 @keyframes spinball {
   0% {
     transform: rotate(0deg);

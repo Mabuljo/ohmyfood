@@ -25,7 +25,6 @@ main {
     }
 }
 
-
 .IndexTitle {
     padding: 0 50px 0 50px;
     font-size: 24px;
@@ -104,6 +103,7 @@ main {
                 transition: color 0.3s ease-out;
                 font-size: 18px;
 
+                /* Changement au survol de la couleur de l'icone*/
                 &:hover {
                     color: $fonctionnement-secondarycolor;
                 }
@@ -164,13 +164,14 @@ main {
             font-weight: 300;
         }
 
+        /*Style des coeurs*/
         .vide, .plein{
             position: absolute;
             right: 15px;
             bottom: 30px;
         }
 
-        .plein{
+        .plein {
             background: $btn-gradient;
             background-clip: text;
             -webkit-background-clip: text;
@@ -178,38 +179,19 @@ main {
             color: transparent;
         }
 
-/* Animation de l'apparition du coeur plein au survol*/
+        /* Animation de l'apparition du coeur plein au survol*/
         &--heart:hover {
-
             .vide {
                 opacity: 0;
             }
 
             .plein {
                 display: inline-block;
-                opacity: 1;
                 animation: heart 1s both; // pour que le coeur reste à 100%
                 -webkit-animation: heart 1s both;
             }
         }
-        
-/* Disparition du coeur plein et apparition du coeur vide après l'effet de survol*/
-        &--heart:not(:hover) {
-            .plein {
-                display: inline-block;
-                opacity: 0;
-                animation: heart-disappear 1s forwards;
-                -webkit-animation: heart-disappear 1s forwards;
-            }
-            
-            .vide {
-                opacity:1;
-                animation: menu-appear 1s forwards;
-                -webkit-animation: menu-appear 1s forwards;
-            }
-        }
-    }
-    
+    }       
 }
 
 /* Media Queries*/

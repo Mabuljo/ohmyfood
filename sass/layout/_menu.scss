@@ -16,7 +16,7 @@ body {
 
 .menu__card {
     background-color: $main-color;
-
+    
     &--content {
         display: flex;
         justify-content: center;
@@ -28,13 +28,14 @@ body {
         bottom: 40px;
         background-color: $main-color;
         position: relative;
-        overflow: hidden;
+        overflow: hidden;  
     }
 
     &--title {
         @include MenuTitle;
     } 
 
+    /* Style des coeurs*/
     .coeur-vide, .coeur-plein {
         position: absolute;
         bottom: 10px;
@@ -47,37 +48,20 @@ body {
         display: none; // le coeur plein est invisible
         color: transparent;
     }
+
     /* Animation de l'apparition du coeur plein au survol*/
     &--heart:hover {
         .coeur-vide {
             opacity: 0;
         }
-    
+
         .coeur-plein {
             display: inline-block;
-            opacity: 1;
             animation: heart 1s both; // pour que le coeur reste à 100%
             -webkit-animation: heart 1s both;
         }
-    }
-    
-    /* Disparition du coeur plein et apparition du coeur vide après l'effet de survol*/
-    &--heart:not(:hover) {
-        .coeur-plein {
-            display: inline-block;
-            opacity: 0;
-            animation: heart-disappear 1s both;
-            -webkit-animation: heart-disappear 1s both;
-        }
-        
-        .coeur-vide {
-            opacity:1;
-            animation: menu-appear 1s forwards;
-            -webkit-animation: menu-appear 1s forwards;
-        }
-    }  
+    } 
 }
-
 
 /* bordure des titre des menus */
 .subtitle-border {
@@ -98,20 +82,25 @@ body {
     }
 }
 
-.entrees, .plats, .desserts{
+/* Apparition des plats au chargement de la page */
+.entrees, .plats, .desserts {
     animation: menu-appear 1s ease-in-out both;
+    -webkit-animation: menu-appear 1s ease-in-out both ;
 }
-
-.entrees{
+/* Délai d'animation afin que chaque partie apparaissent en décalé */
+.entrees {
     animation-delay: 1s;
+    -webkit-animation-delay: 1s;
 }
 
-.plats{
+.plats {
     animation-delay: 2s;
+    -webkit-animation-delay: 2s;
 }
 
-.desserts{
+.desserts {
     animation-delay: 3s;
+    -webkit-animation-delay: 3s;
 }
 
 .menu {
@@ -162,7 +151,7 @@ body {
         align-items: center;
         gap: 10px;
 
-        .price{
+        .price {
             position: relative;
         }
 
@@ -186,21 +175,23 @@ body {
     }
 
 
-/* Apparition du check au survol des plats*/
+    /* Apparition du check au survol des plats*/
     &__content:hover {
         .plat {
             width: 70%;
         }
 
-        .price{
-            animation: price-slide 900ms both;
+        .price {
+            animation: price-slide 800ms both;
+            -webkit-animation: price-slide 800ms both;
         }
 
         .check {
             display: flex;
             justify-content: center;
             align-items: center;
-            animation: check-appear 900ms both;
+            animation: check-appear 800ms both;
+            -webkit-animation: check-appear 800ms both;
             opacity: 1;
 
             >.fa-circle-check {
@@ -210,7 +201,7 @@ body {
         }
     }
     
-/* Disparition du check après le survol des plats */
+    /* Disparition du check après le survol des plats */
     &__content:not(:hover) {
         .plat {
             width: 100%;
@@ -218,6 +209,7 @@ body {
 
         .price {
             animation: price-disappear 900ms;
+            -webkit-animation: price-disappear 900ms;
         }
 
         .check {
@@ -225,6 +217,7 @@ body {
             justify-content: center;
             align-items: center;
             animation: check-disappear 900ms;
+            -webkit-animation: check-disappear 900ms;
             opacity: 1;
         }    
     }
@@ -238,7 +231,6 @@ body {
 /* Media queries*/
 // Tablets
 @media (min-width: 768px) {
-    
     .main__menu {
         margin-left: 100px;
         margin-right: 100px;
