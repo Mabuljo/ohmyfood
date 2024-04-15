@@ -389,7 +389,7 @@ body {
   -webkit-animation: menu-appear 1s ease-in-out both;
 }
 
-/* Délai d'animation afin que chaque partie apparaisse en décalé */
+/* Délai d'animation afin que chaque partie apparaissent en décalé */
 .entrees {
   animation-delay: 1s;
   -webkit-animation-delay: 1s;
@@ -467,7 +467,7 @@ body {
 .menu__items--price .check .fa-circle-check {
   transform: rotate(0deg);
   -webkit-transform: rotate(0deg);
-  transition: transform 1200ms ease-in;
+  transition: transform 1s ease-in;
 }
 .menu__content:hover .plat {
   width: 70%;

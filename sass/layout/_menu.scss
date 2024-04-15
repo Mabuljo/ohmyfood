@@ -84,7 +84,7 @@ body {
     -webkit-animation: menu-appear 1s ease-in-out both ;
 }
 
-/* Délai d'animation afin que chaque partie apparaisse en décalé */
+/* Délai d'animation afin que chaque partie apparaissent en décalé */
 .entrees {
     animation-delay: 1s;
     -webkit-animation-delay: 1s;
@@ -166,11 +166,10 @@ body {
             .fa-circle-check {
                 transform: rotate(0deg);
                 -webkit-transform: rotate(0deg);
-                transition: transform 1200ms ease-in; // rotation de l'icone à 360°
+                transition: transform 1s ease-in; // rotation de l'icone à 360°
             }
         }
     }
-
 
     /* Apparition du check au survol des plats */
     &__content:hover {
