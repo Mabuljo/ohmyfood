@@ -1,4 +1,4 @@
-#Projet Ohmyfood : Améliorez l'interface d'un site mobile avec des animations CSS
+Projet Ohmyfood : Améliorez l'interface d'un site mobile avec des animations CSS
 
 la tâche principale est d'intégrer une maquette en mobile-first. 
 Cette approche mobile-first permet de comprendre l'importance de concevoir des sites web adaptatifs et réactifs.
